@@ -1,0 +1,21 @@
+/* Two pointer based qstn in which we need to maintain two pointer 
+i.e profitCI is the profit at current index and overallProfit is 
+used to find the maximum overall profit at a given index.*/
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int lsf = Integer.MAX_VALUE;
+        int profitCI = 0;
+        int overallProfit=0;
+        for(int i=0; i<prices.length; i++){
+            if(lsf>prices[i]){
+                lsf = prices[i];
+            }
+            profitCI = prices[i]-lsf;
+            if(overallProfit<profitCI){
+                overallProfit = profitCI;
+            }
+        }
+        return overallProfit;
+    }
+}
