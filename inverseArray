@@ -8,27 +8,25 @@ public class Main {
         for(int i=0; i<n; i++){
             arr[i] = sc.nextInt();
         }
-        inverseArray(arr);
+        int[] narr = new int[n];
+        inverseArray(arr, narr);
+        for(int i=0; i<narr.length; i++){
+            System.out.print(narr[i]+ " ");
+        }
+    }
+
+    public static void inverseArray(int[] arr, int[] narr){
         for(int i=0; i<arr.length; i++){
-            System.out.print(arr[i]+ " ");
+            narr[i] = search(arr, i);
         }
     }
 
     public static int search(int[] arr, int target){
-        for(int index=0; index<arr.length; index++){
-            if(arr[index]==target){
-                return index;
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]==target){
+                return i;
             }
         }
         return -1;
     }
-    public static void inverseArray(int[] arr){
-        for(int i=0; i<arr.length; i++){
-            if(arr[i] != i){
-                arr[i] = search(arr, i);
-            }
-        }
-    }
-
-    
 }
